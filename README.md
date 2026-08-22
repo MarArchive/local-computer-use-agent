@@ -1,28 +1,34 @@
 # Local Computer-Use-Agent
 
-A lightweight, dual-agent desktop automation system designed to run entirely locally on standard notebooks (under **8GB VRAM**). By combining direct OS-level execution with a quantized visual fallback, this agent delivers high efficiency, strong accuracy, and complete privacy without requiring heavy cloud infrastructure.
+A local, privacy-first desktop AI assistant powered by **Ollama**, featuring real-time screen inspection (**VisionAI**) and a manual, file-based **JSON Memory System**. 
 
 ## 🎯 Project Goals
-* **Low Resource Footprint:** Optimized for quantized local models requiring less than 8GB VRAM, making it fully runnable on consumer notebooks and laptops.
+* **Low Resource Footprint:** Optimized for quantized local models requiring less than 8GB VRAM, making it fully runnable on consumer notebooks and laptops(under **8GB VRAM**).
 * **Privacy & Local First:** Keeps all reasoning, planning, and vision processing local to your machine.
 * **Smart & Efficient:** Bypasses slow visual navigation by utilizing native OS commands for straightforward tasks, reserving vision-based UI interaction only when necessary.
 
+
 ---
 
-## 🏗️ System Architecture
+## ✨ Key Features
 
-Built from the ground up as a clean, modular system divided into distinct functional components:
+* **💬 Chat Hub UI:** A clean, responsive Tkinter interface supporting basic markdown styling (bold text, headings) and thread-safe background execution.
+* **📸 Screen Context (VisionAI):** Optionally capture and analyze your active desktop screen to give your AI contextual awareness of what you're working on.
+* **💾 Curated JSON Memory System:** Prevent AI clutter by manually saving your best Q&A interactions into individual `.json` files. The system automatically pulls recent memories into the AI prompt context.
+* **📊 Live Execution Logs:** A built-in terminal/log tab to track background steps, vision summaries, and errors in real-time.
 
-* **User Interface & Orchestrator:** Handles user communication and routes the request to the primary reasoning engine.
-* **The Brainstorming AI (The Planner):** A lightweight, quantized local LLM that analyzes user requests, plans the execution steps, and determines whether an OS command or visual action is required.
-* **OS Execution Tools:** Direct system-level commands (`os` / `subprocess`) allowing the agent to launch apps, manage files, and execute terminal workflows instantly.
-* **Vision Subsystem (The Visual Fallback):** A specialized grid-based vision agent that wakes up to interpret complex graphical interfaces and handle precise mouse/keyboard interactions when OS shortcuts aren't enough.
+---
 
-### 📂 Recommended Modular Structure
+## 📁 Project File Structure
+
 ```text
-├── agent_core.py       # Main orchestrator and user interface loop
-├── planner.py          # Brainstorming AI logic and execution planning
-├── vision_agent.py     # Grid-based visual UI interpretation module
-├── os_tools.py         # Native system operation tools (App launching, file management)
-├── vision_tools.py     # Screen capture, coordinate calculation, and mouse/keyboard control
-└── requirements.txt    # Clean dependencies list
+collaborative-agent-hub/
+│
+├── agent_core.py            # Main Tkinter UI, event loops, and window management
+├── brainstorming_agent.py   # Ollama API integration and prompt construction
+├── vision_agent.py          # Screen capture and visual context analyzer
+├── memory_manager.py        # JSON-based memory storage, reading, and sorting
+├── functions.py             # Utility helpers and cursor overlay handling
+├── requirements.txt         # Python package dependencies
+├── cursor.png               # Custom cursor asset for screen tracking
+└── memories/                # Automatically generated folder storing JSON memory files
