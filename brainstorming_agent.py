@@ -60,7 +60,7 @@ def get_brainstorming_response_with_vision(user_message: str, vision_feedback: s
         "temperature": 0.7
     }
     try:
-        response = requests.post(OLLAMA_URL, json=payload, timeout=30)
+        response = requests.post(OLLAMA_URL, json=payload, timeout=180)
         if response.status_code == 200:
             return response.json()["choices"][0]["message"]["content"].strip()
         return vision_feedback
