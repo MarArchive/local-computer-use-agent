@@ -1,5 +1,6 @@
 # Local Computer-Use-Agent
 
+**This Project is still in Progress, Model responses may contain inaccuracies.**
 A local, privacy-first desktop AI assistant powered by **Ollama**, featuring real-time screen inspection (**VisionAI**) and a manual, file-based **JSON Memory System**. 
 
 ## 🎯 Project Goals
