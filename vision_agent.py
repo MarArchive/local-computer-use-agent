@@ -48,7 +48,7 @@ def run_vision_analysis(user_message: str, overlay) -> str:
                 ]
             }
         ],
-        "max_tokens": 1000
+        "max_tokens": 2048
     }
 
     try:
